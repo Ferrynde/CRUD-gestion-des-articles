@@ -45,5 +45,11 @@ class ArticleController extends Controller
         $article->update();
         return redirect('/')->with('message', 'Article modifie avec succès');
     }
+    public function delete($id){
+        $article= Article::find($id);
+        $article->delete();
+        return redirect('/')->with('message','Article supprime');
+
+    }
 
 }

@@ -45,18 +45,24 @@
             </tr>
         </thead>
         <tbody>
+            @php
+             $num=1;   
+            @endphp
             @foreach($articles as $article)
                 <tr>
-                <th scope="row">{{$article->id}}</th>
+                <th scope="row">{{$num}}</th>
                 <th scope="row">{{$article->libelle}}</th>
                 <td>{{$article->prix}}</td>
                 <td>
                     <a href="/update/{{$article->id}}" class="btn btn-warning">Modifier</a>
                 </td>
                 <td>
-                <a href="/suprimmer" class="btn btn-danger">Supprimer</a>
+                <a href="/delete/{{$article->id}}" class="btn btn-danger">Supprimer</a>
                 </td>
                 </tr>
+                @php
+                $num=$num+1;
+                @endphp
             @endforeach
         </tbody>
 </table>
